@@ -641,7 +641,7 @@ CREATE TABLE KafkaTable (
   ...
   'properties.security.protocol' = 'SASL_PLAINTEXT',
   'properties.sasl.mechanism' = 'PLAIN',
-  'properties.sasl.jaas.config' = 'org.apache.kafka.common.security.plain.PlainLoginModule required username=\"username\" password=\"password\";'
+  'properties.sasl.jaas.config' = 'org.apache.flink.kafka.shaded.org.apache.kafka.common.security.plain.PlainLoginModule required username=\"username\" password=\"password\";'
 )
 ```
 For a more complex example, use SASL_SSL as the security protocol and use SCRAM-SHA-256 as SASL mechanism:
@@ -666,7 +666,7 @@ CREATE TABLE KafkaTable (
   /* Set SASL mechanism as SCRAM-SHA-256 */
   'properties.sasl.mechanism' = 'SCRAM-SHA-256',
   /* Set JAAS configurations */
-  'properties.sasl.jaas.config' = 'org.apache.kafka.common.security.scram.ScramLoginModule required username=\"username\" password=\"password\";'
+  'properties.sasl.jaas.config' = 'org.apache.flink.kafka.shaded.org.apache.kafka.common.security.plain.PlainLoginModule required username=\"username\" password=\"password\";'
 )
 ```
 
